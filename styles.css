@@ -1,0 +1,200 @@
+/* Basic Styling */
+
+@font-face {
+  font-family: 'Kelvinized';
+  src: url('../../../../Library/Fonts/Kelvinized.ttf');
+}
+
+html, body{
+  font-family: Kelvinized;
+}
+body{
+  margin: 0;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Navbar */
+
+.navbar_container {
+  display: flex;
+  justify-content: space-between;
+  height: 7vh;
+  background-color: #F5F5F5;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  z-index: 10;
+}
+
+h1 {
+  cursor:default;
+  margin: 1vh;
+  color: #F00000;
+  font-family: Kelvinized;
+}
+
+.left_icon img, .right_icon img {
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: 4vh;
+  height: 3.5vh;
+  cursor: pointer;
+}
+
+/* Overlay Menu */
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position:absolute;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    color: #F00000;
+    float:right;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+.overlay  .pink{
+  color: #FF00F5;
+}
+
+.overlay  .green{
+  color: #1ED600;
+}
+
+.overlay  .yellow{
+  color: #ecff0d;
+}
+.overlay  .blue{
+  color: #37CFFF;
+}
+
+/* Images container */
+
+.images_container {
+  display: flex;
+  gap: 8vh;
+  margin: 4vh;
+  height: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+/* .row_container{
+  display: flex;
+  justify-content:space-evenly;
+} */
+
+
+.images_container img {
+  height: 50vh;
+  border-style:solid;
+  border-width: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/* .images_container .tooth {
+  height: 60vh;
+} */
+/* .images_container .bird {
+  height: 50vh;
+} */
+
+.images_container img  {
+  opacity: 1;
+  transition: .6s ease;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.images_container img:hover {
+  opacity: 0.6;
+}
+
+.images_container .popup_image {
+  position: fixed;
+  top: 0; left: 0;
+  background: rgba(0,0,0, 0.9);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  display: none;
+}
+
+
+.images_container .popup_image span {
+  position: absolute;
+  top: 0; right: 10px;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.images_container .popup_image img {
+  display: flex;
+  position: absolute;
+  transform: translate(-50% -50%);
+  border: 5px solid #fff ;
+  border-radius: 5px;
+  /* width: 750px; */
+  object-fit: cover;
+  top: 25%; /* 25% from the top */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
